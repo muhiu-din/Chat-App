@@ -47,7 +47,7 @@ export default function Navbar() {
               Forums
             </Link>
              <SignedIn>
-        <UserButton />
+         <UserButton />
       </SignedIn>
           </div>
 
