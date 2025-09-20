@@ -8,6 +8,6 @@ export default async function Page({
 }) {
   const { slug } = await params
 
- return <ChatForum />;
- 
+ return <ChatForum slug={slug} />;
+
 }

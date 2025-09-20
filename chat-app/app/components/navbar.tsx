@@ -9,7 +9,7 @@ import { useUser, SignedIn, UserButton } from '@clerk/nextjs'
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const {user} = useUser();
-
+  console.log(user?.id);
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
