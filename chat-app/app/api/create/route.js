@@ -10,7 +10,7 @@ export async function GET() {
   if (!user) {
     return Response.json({ error: "Unauthorized" }, { status: 401 });
   }
-
+  console.log(token)
   const user_id = user.id;
 
   const serverClient = StreamChat.getInstance(api_key, api_secret);
