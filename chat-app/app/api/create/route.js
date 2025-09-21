@@ -5,12 +5,13 @@ import { StreamChat } from "stream-chat";
 const api_key ="js7hnt7u44ev";
 const api_secret = "ga39ajz5thacxzzga5g9abgw27tb45p7dkyb5yw49dk3t5zqh783gj87cvexpd9v";
 const user_id = "user_32N6IQbJbFS0OGaQp2LuBoN1ftM";
-export async function GET() {
+export async function POST(request) {
+  const user = await request.json() 
   
   const serverClient = StreamChat.getInstance(api_key, api_secret);
-  const token = serverClient.createToken(user_id);
-  console.log(token)
-
+  const token = serverClient.createToken(user.data.id);
+  // console.log(token)
   // return Response.json({ token, user_id });
+  console.log("A new user has been created on userId: ")
   return Response.json({message: "Hello Worlddd!"});
 }
