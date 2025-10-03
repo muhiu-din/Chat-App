@@ -1,13 +1,21 @@
+import ChatForum from "@/app/components/chatForum";
+import { currentUser } from "@clerk/nextjs/server";
 
-import ChatForum from '@/app/components/chatForum';
+interface PageProps {
+  params: { slug: string };
+}
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
-  const { slug } = await params
+export default async function Page({ params }: PageProps) {
+  const user = await currentUser();
 
- return <ChatForum slug={slug} />;
-
+  return (
+    <ChatForum
+      slug={params.slug}
+      clerkUser={{
+        id: user?.id ?? "",
+        name: user?.firstName ?? "",
+        token: (user?.publicMetadata as { token?: string })?.token ?? "",
+      }}
+    />
+  );
 }
